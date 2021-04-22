@@ -41,6 +41,7 @@ const Address = new Schema({
         default: Date.now,
         required: true
     }
+    
 });
 
 module.exports = mongoose.model('address', Address);
