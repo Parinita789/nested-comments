@@ -2,38 +2,37 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const Post = new Schema({
+const Product = new Schema({
     id: {
         type: String,
         required: true
     },
-    title: {
+    item_type: {
         type: String,
         required: true
     },
-    description: {
+    category_id: {
         type: String,
         required: true
     },
-    author_id: {
-        type: String,
-        required: true
-    },
-    likes: {
+    total_peice: {
         type: Number,
-        default: 0,
         required: true
     },
-    dislikes: {
+    total_color: {
         type: Number,
-        default: 0,
         required: true
-    }, 
-    createdAt: {
+    },
+    created_at: {
         type: Date,
-        default: new Date().getTime(),
+        default: Date.now,
         required: true
     },
+    updated_at: {
+        type: Date,
+        default: Date.now,
+        required: true
+    }
 });
 
-module.exports = mongoose.model('Post', Post);
+module.exports = mongoose.model('product', Product);

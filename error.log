@@ -1,1 +1,39 @@
 {"level":"error","message":"err"}
+{"level":"error","message":"User validation failed: mobile_number: Path `mobile_number` is required., id: Path `id` is required."}
+{"level":"error","message":"User validation failed: id: Path `id` is required."}
+{"level":"error","message":"Incorrect email or password."}
+{"level":"error","message":"records is not defined"}
+{"level":"error","message":"customer is not defined"}
+{"level":"error","message":"customer validation failed: email: Path `email` is required., id: Path `id` is required."}
+{"level":"error","message":"customer validation failed: id: Path `id` is required."}
+{"level":"error","message":"USER is not defined"}
+{"level":"error","message":"USER is not defined"}
+{"level":"error","message":"Cast to Number failed for value \"{ id: '1' }\" at path \"_id\" for model \"customer\""}
+{"level":"error","message":"Customer not found."}
+{"level":"error","message":"Cast to Number failed for value \"{ id: '1' }\" at path \"_id\" for model \"customer\""}
+{"err":{},"level":"error","message":"err addDataViaFile "}
+{"err":{},"level":"error","message":"err addDataViaFile "}
+{"err":{},"level":"error","message":"err addDataViaFile "}
+{"err":{},"level":"error","message":"err addDataViaFile "}
+{"err":{},"level":"error","message":"err addDataViaFile "}
+{"level":"error","message":"Customer with given mobile number already exists."}
+{"level":"error","message":"Customer with given mobile number already exists."}
+{"level":"error","message":"Customer with given mobile number already exists."}
+{"level":"error","message":"Customer with given mobile number already exists."}
+{"level":"error","message":"Customer with given mobile number already exists."}
+{"level":"error","message":"Customer with given mobile number already exists."}
+{"level":"error","message":"Customer with given mobile number already exists."}
+{"level":"error","message":"Customer with given mobile number already exists."}
+{"level":"error","message":"Customer with given mobile number already exists."}
+{"level":"error","message":"Customer with given mobile number already exists."}
+{"level":"error","message":"Customer with given mobile number already exists."}
+{"level":"error","message":"Customer with given mobile number already exists."}
+{"level":"error","message":"Customer with given mobile number already exists."}
+{"level":"error","message":"Customer with given mobile number already exists."}
+{"level":"error","message":"Customer with given mobile number already exists."}
+{"level":"error","message":"Cast to ObjectId failed for value \"1\" at path \"_id\" for model \"Customer\""}
+{"level":"error","message":"Cast to ObjectId failed for value \"1\" at path \"_id\" for model \"Customer\""}
+{"level":"error","message":"Cast to ObjectId failed for value \"3\" at path \"_id\" for model \"Customer\""}
+{"level":"error","message":"Cast to Number failed for value \"60814baf9eb0b37effdf3908\" at path \"id\" for model \"Customer\""}
+{"level":"error","message":"Skip value must be non-negative, but received: -5"}
+{"level":"error","message":"Skip value must be non-negative, but received: -5"}

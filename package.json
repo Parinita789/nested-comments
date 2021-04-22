@@ -9,12 +9,20 @@
   "author": "Parinita",
   "license": "ISC",
   "dependencies": {
+    "async": "^3.2.0",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
+    "cloudinary": "^1.25.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "fast-csv": "^4.3.6",
     "http-status": "^1.4.2",
     "joi": "^17.2.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.9",
+    "mongoose-auto-increment": "^5.0.1",
+    "multer": "^1.4.2",
     "uuid": "^8.3.1",
     "winston": "^3.3.3"
   }
