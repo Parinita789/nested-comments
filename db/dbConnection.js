@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const db = {
   // Connects to mongoDB
   connect: (url, options) => {
-    mongoose.connect(url, options);
+    mongoose.connect('mongodb+srv://smm:Rf7kZu2jRZ3Xqyw@cluster0.k5y9y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', options);
     mongoose.connection.on('open', function () {
       console.log("\nConnected to mongo successfully\n");
     });
