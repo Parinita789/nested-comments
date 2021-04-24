@@ -33,9 +33,11 @@ function getNextSequence(name) {
         }
         Counter.findByIdAndUpdate(name, update, option)
             .then(result => {
+                console.log("result >>> ", result)
                 reolve(result.seq)
             })
             .catch(err => {
+                console.log("err >>> ", err)
                 reject(err);
             });
     })
