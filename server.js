@@ -13,7 +13,7 @@ const dotenv = require('dotenv').config();
 const config = require('./config/config');
 const db = require('./db/dbConnection');
 
-const dbconnection = config.dbUrl;
+const dbconnection = config.dbUrl;//'mongodb://127.0.0.1:27017/smm' //
 // 'mongodb://127.0.0.1:27017/smm'
 const PORT = process.env.PORT || 3000;
 

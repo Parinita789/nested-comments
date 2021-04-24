@@ -41,11 +41,14 @@ function createUser(data) {
  */
 function find(query) {
     return new Promise((resolve, reject) => {
+        console.log("query >>> ", query, User)
         User.findOne(query)
             .then(user => {
+                console.log("result >>> ", user)
                 resolve(user)
             })
             .catch(err => {
+                console.log("err >>> ", err)
                 reject(err)
             })
     })
@@ -148,6 +151,7 @@ exports.login = async (data) => {
         // check if user is already registered
         let query = { email: data.email };
         let user = await find(query);
+
         if (!user) {
             throw new NotFoundError(USER.NOT_REGISTERED);
         } else {

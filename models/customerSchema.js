@@ -40,10 +40,10 @@ autoIncrement.initialize(mongoose.connection);
 // Customer.plugin(autoIncrement.plugin, 'Customer');
 
 Customer.plugin(autoIncrement.plugin, {
-    model: 'Customer',
+    model: 'customers',
     field: 'id',
     startAt: 1,
     incrementBy: 1
 })
 
-module.exports = mongoose.model('Customer', Customer);
+module.exports = mongoose.model('customers', Customer);

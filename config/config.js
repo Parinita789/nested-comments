@@ -3,6 +3,8 @@ module.exports = {
     options: {
         useNewUrlParser: true,
         useUnifiedTopology: true,
+        bufferCommands: false,
+        autoCreate: false
     },
     cloudName: process.env.CLOUD_NAME,
     apiKey:  process.env.API_KEY,

@@ -33,12 +33,8 @@ const User = new Schema({
         default: Date.now,
         required: true
     }
-}, {
-    capped: { size: 1024 },
-    bufferCommands: false,
-    autoCreate: false // disable `autoCreate` since `bufferCommands` is false
 });
 
 // User.createIndex({ email: 1 });
 
-module.exports = mongoose.model('User', User);
+module.exports = mongoose.model('users', User);
