@@ -1,5 +1,6 @@
 const async = require("async");
 const Customer = require('../models/customerSchema');
+const Counter = require('../models/counterSchema');
 const { CUSTOMER, COMMON } = require('../constants/responseConstants');
 const { NotAcceptableError, NotFoundError, InternalServerError } = require('../utils/errorUtils');
 
@@ -19,6 +20,22 @@ function createCustomer(data) {
     })
 }
 
+function getNextSequence(name) {
+    return new Promise((reolve, reject) => {
+        let update = { $inc: { seq: 1 } };
+        let option = {
+            new: true
+        }
+        Counter.findByIdAndUpdate(name, update, option)
+            .then(result => {
+                reolve(result.seq)
+            })
+            .catch(err => {
+                reject(err);
+            });
+    })
+}
+
 /**
  * Get user by email
  * @function getUserByEmail
@@ -31,6 +48,7 @@ function find(query) {
                 resolve(user)
             })
             .catch(err => {
+                console.log("err >>>>>> ", err)
                 reject(err)
             })
     })
@@ -84,6 +102,7 @@ exports.saveCustomer = async (data) => {
         if (customer) {
             throw new NotAcceptableError(CUSTOMER.ALREADY_EXIST)
         } else {
+            data.id = await getNextSequence("customer_id");
             let result = await createCustomer(data);
             return result;
         }
@@ -198,7 +217,6 @@ exports.deleteCustomer = async (id, data) => {
         let result = await deleteCustomerById(id);
         return result;
     } catch (err) {
-        console.log("err >>> ", err)
         logger.log({
             level: 'error',
             message: err.message

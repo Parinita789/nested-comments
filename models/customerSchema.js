@@ -1,9 +1,12 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const autoIncrement = require('mongoose-auto-increment');
 
 const Customer = new Schema({
+    id: {
+        type: String,
+        required: true
+    },
     first_name: {
         type: String,
         required: true
@@ -29,21 +32,6 @@ const Customer = new Schema({
         default: Date.now,
         required: true
     }
-},
-{
-    capped: { size: 1024 },
-    bufferCommands: false,
-    autoCreate: false // disable `autoCreate` since `bufferCommands` is false
 });
-
-autoIncrement.initialize(mongoose.connection);
-// Customer.plugin(autoIncrement.plugin, 'Customer');
-
-Customer.plugin(autoIncrement.plugin, {
-    model: 'customers',
-    field: 'id',
-    startAt: 1,
-    incrementBy: 1
-})
 
 module.exports = mongoose.model('customers', Customer);
