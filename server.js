@@ -7,6 +7,7 @@ global.HTTP_STATUS = require('http-status');
 
 const express = require('express');
 const app = express();
+const cors = require('cors')
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv').config();
 const config = require('./config/config');
@@ -17,16 +18,22 @@ const dbconnection = config.dbUrl;
 const PORT = process.env.PORT || 3000;
 
 db.connect(dbconnection, config.options);
+var corsOptions = {
+    origin: 'http://smm-customer-frontend.s3-website.ap-south-1.amazonaws.com',
+    optionsSuccessStatus: 200
+}
 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    // res.header("Access-Control-Allow-Origin", "http://smm-customer-frontend.s3-website.ap-south-1.amazonaws.com");
-    res.header("Access-Control-Allow-Headers", "*");
-    res.header("Access-Control-Request-Headers", "*");
-    res.header('Access-Control-Allow-Headers', "Origin, X-Requested-With, Content-Type, Accept, Authorization, accesstoken");
-    res.header('Access-Control-Allow-Credentials', true);
-    next();
-});
+app.use(cors(corsOptions));
+
+// app.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     // res.header("Access-Control-Allow-Origin", "http://smm-customer-frontend.s3-website.ap-south-1.amazonaws.com");
+//     res.header("Access-Control-Allow-Headers", "*");
+//     res.header("Access-Control-Request-Headers", "*");
+//     res.header('Access-Control-Allow-Headers', "Origin, X-Requested-With, Content-Type, Accept, Authorization, accesstoken");
+//     res.header('Access-Control-Allow-Credentials', true);
+//     next();
+// });
 
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
