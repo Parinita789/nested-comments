@@ -41,14 +41,11 @@ function createUser(data) {
  */
 function find(query) {
     return new Promise((resolve, reject) => {
-        console.log("query >>> ", query, User)
         User.findOne(query)
             .then(user => {
-                console.log("result >>> ", user)
                 resolve(user)
             })
             .catch(err => {
-                console.log("err >>> ", err)
                 reject(err)
             })
     })

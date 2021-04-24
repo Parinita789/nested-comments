@@ -37,3 +37,7 @@
 {"level":"error","message":"Cast to Number failed for value \"60814baf9eb0b37effdf3908\" at path \"id\" for model \"Customer\""}
 {"level":"error","message":"Skip value must be non-negative, but received: -5"}
 {"level":"error","message":"Skip value must be non-negative, but received: -5"}
+{"level":"error","message":"Cannot call `users.findOne()` before initial connection is complete if `bufferCommands = false`. Make sure you `await mongoose.connect()` if you have `bufferCommands = false`."}
+{"level":"error","message":"Not Registered."}
+{"level":"error","message":"Not Registered."}
+{"level":"error","message":"Incorrect email or password."}
