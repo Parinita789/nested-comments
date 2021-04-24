@@ -29,6 +29,11 @@ const Customer = new Schema({
         default: Date.now,
         required: true
     }
+},
+{
+    capped: { size: 1024 },
+    bufferCommands: false,
+    autoCreate: false // disable `autoCreate` since `bufferCommands` is false
 });
 
 autoIncrement.initialize(mongoose.connection);
