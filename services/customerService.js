@@ -20,9 +20,35 @@ function createCustomer(data) {
     })
 }
 
+/**
+ * Get the id for the customer
+ * @function getNextSequence
+ * @param {Strng} name
+ */
 function getNextSequence(name) {
     return new Promise((reolve, reject) => {
         let update = { $inc: { seq: 1 } };
+        let option = {
+            new: true
+        }
+        Counter.findByIdAndUpdate(name, update, option)
+            .then(result => {
+                reolve(result.seq)
+            })
+            .catch(err => {
+                reject(err);
+            });
+    })
+}
+
+/**
+ * decrease the id for the customer
+ * @function decreaseSequence
+ * @param {Strng} name
+ */
+function decreaseSequence(name) {
+    return new Promise((reolve, reject) => {
+        let update = { $inc: { seq: -1 } };
         let option = {
             new: true
         }
@@ -48,7 +74,6 @@ function find(query) {
                 resolve(user)
             })
             .catch(err => {
-                console.log("err >>>>>> ", err)
                 reject(err)
             })
     })
@@ -214,6 +239,7 @@ exports.updateCustomerById = async (id, data) => {
  */
 exports.deleteCustomer = async (id, data) => {
     try {
+        await decreaseSequence("customer_id")
         let result = await deleteCustomerById(id);
         return result;
     } catch (err) {
