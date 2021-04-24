@@ -2,7 +2,7 @@ module.exports = {
     dbUrl: process.env.DB_URL,
     options: {
         useNewUrlParser: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
     },
     cloudName: process.env.CLOUD_NAME,
     apiKey:  process.env.API_KEY,
