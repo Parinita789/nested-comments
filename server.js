@@ -19,7 +19,7 @@ const PORT = process.env.PORT || 3000;
 db.connect(dbconnection, config.options);
 
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "http://smm-customer-frontend.s3-website.ap-south-1.amazonaws.com");
+    res.header("Access-Control-Allow-Origin", "*");
     // res.header("Access-Control-Allow-Origin", "http://smm-customer-frontend.s3-website.ap-south-1.amazonaws.com");
     res.header("Access-Control-Allow-Headers", "*");
     res.header("Access-Control-Request-Headers", "*");
