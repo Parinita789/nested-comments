@@ -33,11 +33,9 @@ function getNextSequence(name) {
         }
         Counter.findByIdAndUpdate(name, update, option)
             .then(result => {
-                console.log("result >>> ", result)
                 reolve(result.seq)
             })
             .catch(err => {
-                console.log("err >>> ", err)
                 reject(err);
             });
     })
@@ -143,17 +141,15 @@ exports.saveCustomer = async (data) => {
 }
 
 async function getCustomerCount() {
-    try {
+    return new Promise((resolve, reject) => {
         Customer.count({}, (err, count) => {
             if (err) {
-                throw err;
+                reject(err);
             } else {
-                return count;
+                resolve(count);
             }
         })
-    } catch (err) {
-        throw err;
-    }
+    })
 }
 
 /**
@@ -164,10 +160,9 @@ async function getCustomerCount() {
  */
 exports.getAllCustomer = async (data, limit, pageNo) => {
     try {
-        let skip = (pageNo * 10) - limit;
+        let skip = (pageNo * 12) - limit;
         let fields = { id: 1, created_at: 1, first_name: 1, last_name: 1, mobile_number: 1, _id: 1 };
         let filter = data ? { $or: [{ first_name: data }, { last_name: data }, { phone_number: data }] } : {};
-
         let customers = await Customer.find(filter, fields).skip(skip).limit(limit);
 
         let count = await getCustomerCount();

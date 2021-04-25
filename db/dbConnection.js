@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const db = {
   // Connects to mongoDB
   connect: (url, options) => {
+    mongoose.set('bufferCommands', false);
     mongoose.connect(url, options);
     mongoose.connection.on('open', function () {
       console.log("\nConnected to mongo successfully\n");
